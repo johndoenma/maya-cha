@@ -113,6 +113,7 @@ TABLE OF CONTENTS
     --unit-xl: 3rem;
     --unit-2xl: 4rem;
     --unit-3xl: 6rem;
+    --unit-4xl: 9rem;
     --container-width: 1100px;
 
     /* GLOBAL FONTS */
@@ -366,11 +367,12 @@ html {
 .site-header .logo {
     display: flex;
     position: absolute;
-    top: 10px;
+    top: 16px;
     left: 50%;
     translate: -50% 0;
     align-items: center;
     gap: var(--unit-s);
+    max-width: 100px;
 }
 
 .site-header .logo svg {
@@ -524,7 +526,7 @@ section {
 
 .hero {
     background-color: var(--color-hero-background);
-    padding-block: var(--unit-3xl);
+    padding-block: var(--unit-4xl);
     padding-inline: var(--unit-s);
     background-image: url(../img/top-page.jpg);
     background-size: cover;
@@ -535,13 +537,16 @@ section {
     font-family: "Kaushan Script", cursive;
     font-weight: 400;
     font-style: normal;
+    font-size: 5em;
+    line-height: 1;
     }
 
     h2 {
     font-family: "Long Cang", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: var(--unit-2xl);    
+    font-size: var(--unit-2xl); 
+    margin: 0;   
     }
     
     h3 {
@@ -573,16 +578,31 @@ section {
 
 .footer-content {
   position: absolute;
-  top: 0;
+  top: 73%;
   left: 0;
   width: 100%;
   height: 100%;
   color: white;
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); */
+}
+
+.site-footer nav ul {
+    display: flex;
+    gap: 1em;
+    list-style: none;
+}
+
+.site-footer a {
+    color: var(--color-black);
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+        color: var(--color-black);
+    }
 }
 
 
@@ -705,7 +725,7 @@ body > * {
 }
 
 .site-header.on-top-of-hero + .site-main .hero {
-    padding-block-start: calc(var(--unit-3xl) + var(--unit-xl));
+    padding-block-start: calc(var(--unit-4xl) + var(--unit-xl));
 }
 
 /* CUSTOM HERO STYLING */
@@ -874,8 +894,9 @@ section:has(.observe-me)  {
 .speech-bubble {
     /* メインの吹き出しのスタイル */
     position: relative; /* 疑似要素の基準位置 */
-    width: 300px;
-    padding: 20px;
+    /* width: 300px; */
+    width: max(35%, 400px);
+    padding: 60px;
     border-radius: 60px; /* 角丸 */
     background-color: var(--color-green); /* 白い背景 */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影 */
@@ -883,11 +904,16 @@ section:has(.observe-me)  {
     word-wrap: break-word;
     line-height: 1.5;
     /* この例の位置は固定値です。配置したい場所に合わせて調整してください */
-    margin: 50px 0 0 50px; 
+    margin: 50px 0 0 0px; 
 }
 
 .speech-bubble.top-right {
 margin-left: auto;   /* 左側のマージンを自動的に最大まで広げる */
+    margin-right: 0;
+}
+
+.speech-bubble.bottom-left {
+    margin-left: 15%;   /* 左側のマージンを自動的に最大まで広げる */
     margin-right: 0;
 }
 
